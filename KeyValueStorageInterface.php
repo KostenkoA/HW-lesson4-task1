@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Storage;
+namespace App\DesignPatterns;
 
 
 interface KeyValueStorageInterface
@@ -37,5 +37,5 @@ interface KeyValueStorageInterface
      *
      * @param string $key
      */
-    public function clear($key);
+    public function clear();
 }
