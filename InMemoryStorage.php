@@ -2,7 +2,6 @@
 
 namespace App\DesignPatterns;
 
-require __DIR__ . '/KeyValueStorageInterface.php';
 
 class InMemoryStorage implements KeyValueStorageInterface
 {

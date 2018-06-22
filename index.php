@@ -3,7 +3,6 @@
 use App\DesignPatterns\InMemoryStorage;
 
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/InMemoryStorage.php';
 
 $data = new InMemoryStorage();
 
