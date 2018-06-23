@@ -14,16 +14,18 @@ class InMemoryStorage implements KeyValueStorageInterface
 
     public function get($key)
     {
-        return $this->storage[$key];
+        if (isset($this->storage[$key])) {
+            return $this->storage[$key];
+        }
     }
 
     public function has($key)
     {
         if (isset($this->storage[$key])){
-            return $key.' is exist in storage';
+            return true;
         }
 
-        return $key.' does not exist in storage';
+        return false;
     }
 
     public function remove($key)
