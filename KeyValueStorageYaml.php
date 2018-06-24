@@ -11,41 +11,40 @@ class KeyValueStorageYaml implements KeyValueStorageInterface
     public function set($key, $value)
     {
         $this->yamlStorage[$key]=$value;
-        $yaml = Yaml::dump($this->yamlStorage);
-        file_put_contents('./KeyValueStorage.yaml',$yaml);
+        file_put_contents('./Storage/KeyValueStorage.yaml',Yaml::dump($this->yamlStorage));
     }
 
     public function get($key)
     {
-        $parse = Yaml::parseFile('./KeyValueStorage.yaml');
+        $parse = Yaml::parseFile('./Storage/KeyValueStorage.yaml');
 
         if (isset($parse[$key])){
             return $parse[$key];
         }
 
         return false;
+
     }
 
     public function clear()
     {
-        $yaml = Yaml::dump($this->yamlStorage=[]);
-        file_put_contents('./KeyValueStorage.yaml',$yaml);
+        file_put_contents('./Storage/KeyValueStorage.yaml',Yaml::dump($this->yamlStorage=[]));
     }
 
     public function remove($key)
     {
-        $parse = Yaml::parseFile('./KeyValueStorage.yaml');
+        $parse = Yaml::parseFile('./Storage/KeyValueStorage.yaml');
 
         if (isset($parse[$key])){
             unset ($parse[$key]);
             $yaml = Yaml::dump($parse);
-            file_put_contents('./KeyValueStorage.yaml',$yaml);
+            file_put_contents('./Storage/KeyValueStorage.yaml',$yaml);
         }
     }
 
     public function has($key)
     {
-        $parse = Yaml::parseFile('./KeyValueStorage.yaml');
+        $parse = Yaml::parseFile('./Storage/KeyValueStorage.yaml');
 
         if (isset($parse[$key])) {
             return true;

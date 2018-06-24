@@ -3,7 +3,7 @@
 namespace App\DesignPatterns;
 
 
-class InMemoryStorage implements KeyValueStorageInterface
+class KeyValueStorage implements KeyValueStorageInterface
 {
     private $storage = [];
 
@@ -33,13 +33,10 @@ class InMemoryStorage implements KeyValueStorageInterface
         if (isset($this->storage[$key])){
             unset($this->storage[$key]);
         }
-
     }
 
     public function clear()
     {
         $this->storage = [];
     }
-
-
 }
